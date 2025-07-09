@@ -67,10 +67,10 @@ const HomeScreen = () => {
         <Image source={{ uri: 'https://t3.ftcdn.net/jpg/05/11/55/90/360_F_511559080_X4IGkzJKv3ZrHbp2wB0MmJ3DC9noNQIr.jpg' }} style={styles.avatar} />
         <View>
           <Text style={styles.userName}>{req.name}</Text>
-          <Text style={styles.userPs}>PS No: 4236547564{req.psNumber}</Text>
-          {/* <Text style={styles.rideRoute}>
+          <Text style={styles.userPs}>PS No: {req.psNumber}</Text>
+          <Text style={styles.rideRoute}>
             {req.from} ➡ {req.to}
-          </Text> */}
+          </Text>
         </View>
       </View>
       {!isAccepted && (

@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import Header from '../../components/Header'
 import { useNavigation } from '@react-navigation/native'
@@ -8,6 +8,7 @@ const BookingScreen = () => {
   return (
     <View>
       <Header />
+      <ScrollView >
       <View
         style={{
           padding: 10,
@@ -89,6 +90,9 @@ const BookingScreen = () => {
           <Text style={{ color: 'white' }}>Book now</Text>
         </TouchableOpacity>
       </View>
+
+      <View style={{width:'100%', height:200}}></View>
+      </ScrollView>
     </View>
   )
 }

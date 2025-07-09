@@ -9,6 +9,7 @@ import {
   ScrollView,
   StyleSheet,
   SafeAreaView,
+  TouchableOpacity,
 } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import Header from '../../components/Header';
@@ -148,7 +149,7 @@ const CreateRideOffer = () => {
   );
 
   return (
-    <SafeAreaView>
+    <View>
       <Header />
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <View style={styles.container}>
@@ -159,6 +160,7 @@ const CreateRideOffer = () => {
             placeholder="Origin"
             value={origin}
             onChangeText={setOrigin}
+            placeholderTextColor={'black'}
           />
 
           <TextInput
@@ -166,6 +168,7 @@ const CreateRideOffer = () => {
             placeholder="Destination 1 (Required)"
             value={destination1}
             onChangeText={setDestination1}
+            placeholderTextColor={'black'}
           />
 
           <TextInput
@@ -173,6 +176,7 @@ const CreateRideOffer = () => {
             placeholder="Destination 2 (Optional)"
             value={destination2}
             onChangeText={setDestination2}
+            placeholderTextColor={'black'}
           />
 
           <TextInput
@@ -180,21 +184,33 @@ const CreateRideOffer = () => {
             placeholder="Destination 3 (Optional)"
             value={destination3}
             onChangeText={setDestination3}
+            placeholderTextColor={'black'}
           />
           <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
-            <View style={{width:'48%'}}>
+            <View style={{ width: '48%' }}>
               <Text style={styles.label}>Select Date:</Text>
-              <Button
+              {/* <Button
                 title={dateTimeState.selectedDate || 'Pick a date'}
                 onPress={showDatePicker}
-              />
+              /> */}
+              <TouchableOpacity style={styles.dateButton} onPress={showDatePicker}>
+                <Text style={styles.dateButtonText}>
+                  {dateTimeState.selectedDate || 'Pick a date'}
+                </Text>
+              </TouchableOpacity>
+
             </View>
-            <View style={{width:'48%'}}>
+            <View style={{ width: '48%' }}>
               <Text style={styles.label}>Select Time:</Text>
-              <Button
+              {/* <Button
                 title={dateTimeState.selectedTime || 'Pick a time'}
                 onPress={showTimePicker}
-              />
+              /> */}
+              <TouchableOpacity style={styles.dateButton} onPress={showTimePicker}>
+                <Text style={styles.dateButtonText}>
+                  {dateTimeState.selectedTime || 'Pick a time'}
+                </Text>
+              </TouchableOpacity>
 
             </View>
           </View>
@@ -220,9 +236,16 @@ const CreateRideOffer = () => {
             />
           )}
 
-          <View style={{ marginTop: 30 }}>
+          {/* <View style={{ marginTop: 30 }}>
             <Button title="Create Ride Offer" onPress={handleSubmit} />
-          </View>
+          </View> */}
+
+          <TouchableOpacity style={[styles.dateButton, {backgroundColor:'#2f528a'}]}  onPress={handleSubmit}>
+                <Text style={[styles.dateButtonText,{color:'white'}]}>
+                  Create Ride Offer
+                </Text>
+              </TouchableOpacity>
+          
 
           {/* Your Ride Offers */}
           {myOffers.length > 0 && (
@@ -237,7 +260,7 @@ const CreateRideOffer = () => {
           {otherOffers.map(item => renderOffer({ item }))}
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -289,6 +312,20 @@ const styles = StyleSheet.create({
     color: '#555',
     marginTop: 4,
   },
+  dateButton: {
+  backgroundColor: '#d2d4d6', // any color you want
+  paddingVertical: 12,
+  paddingHorizontal: 20,
+  borderRadius: 8,
+  alignItems: 'center',
+  marginTop: 10,
+},
+dateButtonText: {
+  color: 'black',
+  fontSize: 16,
+  fontWeight: '600',
+},
+
 });
 
 export default CreateRideOffer;

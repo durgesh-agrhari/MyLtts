@@ -54,7 +54,7 @@ const FoodMenuScreen = () => {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <View style={{ flex: 1 }}>
       <Header />
       <ScrollView contentContainerStyle={styles.container}>
         {/* Top Header with Back */}
@@ -90,7 +90,7 @@ const FoodMenuScreen = () => {
           </View>
         )}
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 };
 
