@@ -1,13 +1,15 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView } from 'react-native';
 import React from 'react';
 import Header from '../../components/Header';
+import { useNavigation } from '@react-navigation/native';
 
 const ProfileScreen = () => {
+   const navigation = useNavigation();
   // Dummy user data (replace with real data later)
   const user = {
     name: 'Durgesh Agrhari',
     psNumber: 'PS123456',
-    profileImage: 'https://i.pravatar.cc/150?img=3', // placeholder image
+    profileImage: 'https://cdn-icons-png.flaticon.com/512/6858/6858504.png', // placeholder image
   };
 
   return (
@@ -33,6 +35,10 @@ const ProfileScreen = () => {
 
           <TouchableOpacity style={styles.button}>
             <Text style={styles.buttonText}>🏏 Sports Ticket History</Text>
+          </TouchableOpacity>
+
+           <TouchableOpacity style={styles.button} onPress={()=> navigation.navigate('LoginScreen')}>
+            <Text style={styles.buttonText}>Login</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>

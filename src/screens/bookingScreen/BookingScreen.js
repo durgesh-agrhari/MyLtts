@@ -79,7 +79,7 @@ const BookingScreen = () => {
         </Text>
 
         <TouchableOpacity
-          // onPress={() => navigation.push('CameraRool')}
+          onPress={() => navigation.push('SportScreen')}
           style={{
             backgroundColor: 'black',
             paddingHorizontal: 25,

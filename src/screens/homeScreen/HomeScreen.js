@@ -60,29 +60,64 @@ const HomeScreen = () => {
       )}
     </View>
   );
+  const handleCancelRide = (request) => {
+  setAcceptedRequests(acceptedRequests.filter((r) => r.id !== request.id));
+  setPendingRequests([request, ...pendingRequests]);
+};
 
-  const renderRideUserCard = (req, isAccepted = false) => (
-    <View key={req.id} style={styles.requestCard}>
-      <View style={styles.userInfo}>
-        <Image source={{ uri: 'https://t3.ftcdn.net/jpg/05/11/55/90/360_F_511559080_X4IGkzJKv3ZrHbp2wB0MmJ3DC9noNQIr.jpg' }} style={styles.avatar} />
-        <View>
-          <Text style={styles.userName}>{req.name}</Text>
-          <Text style={styles.userPs}>PS No: {req.psNumber}</Text>
-          <Text style={styles.rideRoute}>
-            {req.from} ➡ {req.to}
-          </Text>
-        </View>
+const renderRideUserCard = (req, isAccepted = false) => (
+  <View key={req.id} style={styles.requestCard}>
+    <View style={styles.userInfo}>
+      <Image source={{ uri: req.avatar }} style={styles.avatar} />
+      <View>
+        <Text style={styles.userName}>{req.name}</Text>
+        <Text style={styles.userPs}>PS No: {req.psNumber}</Text>
+        <Text style={styles.rideRoute}>
+          {req.from} ➡ {req.to}
+        </Text>
       </View>
-      {!isAccepted && (
-        <TouchableOpacity
-          style={styles.acceptButton}
-          onPress={() => handleAcceptRide(req)}
-        >
-          <Text style={styles.acceptText}>Accept</Text>
-        </TouchableOpacity>
-      )}
     </View>
-  );
+
+    {isAccepted ? (
+      <TouchableOpacity
+        style={styles.cancelButton}
+        onPress={() => handleCancelRide(req)}
+      >
+        <Text style={styles.cancelText}>Cancel</Text>
+      </TouchableOpacity>
+    ) : (
+      <TouchableOpacity
+        style={styles.acceptButton}
+        onPress={() => handleAcceptRide(req)}
+      >
+        <Text style={styles.acceptText}>Accept</Text>
+      </TouchableOpacity>
+    )}
+  </View>
+);
+
+  // const renderRideUserCard = (req, isAccepted = false) => (
+  //   <View key={req.id} style={styles.requestCard}>
+  //     <View style={styles.userInfo}>
+  //       <Image source={{ uri: 'https://t3.ftcdn.net/jpg/05/11/55/90/360_F_511559080_X4IGkzJKv3ZrHbp2wB0MmJ3DC9noNQIr.jpg' }} style={styles.avatar} />
+  //       <View>
+  //         <Text style={styles.userName}>{req.name}</Text>
+  //         <Text style={styles.userPs}>PS No: {req.psNumber}</Text>
+  //         <Text style={styles.rideRoute}>
+  //           {req.from} ➡ {req.to}
+  //         </Text>
+  //       </View>
+  //     </View>
+  //     {!isAccepted && (
+  //       <TouchableOpacity
+  //         style={styles.acceptButton}
+  //         onPress={() => handleAcceptRide(req)}
+  //       >
+  //         <Text style={styles.acceptText}>Accept</Text>
+  //       </TouchableOpacity>
+  //     )}
+  //   </View>
+  // );
 
   return (
     <View style={styles.container}>
@@ -200,6 +235,17 @@ const styles = StyleSheet.create({
     color: '#555',
     marginTop: 2,
   },
+  cancelButton: {
+  backgroundColor: 'red',
+  paddingVertical: 6,
+  paddingHorizontal: 14,
+  borderRadius: 20,
+},
+cancelText: {
+  color: 'white',
+  fontWeight: 'bold',
+},
+
 });
 
 

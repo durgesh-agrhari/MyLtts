@@ -4,7 +4,7 @@ import React from 'react'
 const Header = () => {
   return (
     <SafeAreaView style={{marginTop:25}}>
-      <Image source={require('../assets/logo.png')} style={{width:'100%', height:70}} />
+      <Image source={require('../assets/logo.jpg')} style={{width:'100%', height:70}} />
     </SafeAreaView>
   )
 }
