@@ -10,6 +10,7 @@ import SportScreen from '../screens/bookingScreen/sportBooking/SprotScreen';
 import Bookingmenu from '../screens/bookingScreen/sportBooking/Bookingmenu';
 import BadmintonBooking from '../screens/bookingScreen/sportBooking/BadmintonBooking';
 import Splacehome from '../screens/splashScreen/Splacehome';
+import TableTennisBooking from '../screens/bookingScreen/sportBooking/TableTennisBooking';
 const Stack = createNativeStackNavigator();
 
 const AppNavigator = () => {
@@ -29,6 +30,7 @@ const AppNavigator = () => {
           <Stack.Screen name="Splash" component={Splash} />
           <Stack.Screen name="BottomTab" component={BottomTab} />
           <Stack.Screen name="FoodMenuScreen" component={FoodMenuScreen} />
+          <Stack.Screen name="TableTennisBooking" component={TableTennisBooking} />
       </Stack.Navigator>
     </NavigationContainer>
   );
