@@ -9,6 +9,7 @@ import LoginScreen from '../screens/authScreen/LoginScreen';
 import SportScreen from '../screens/bookingScreen/sportBooking/SprotScreen';
 import Bookingmenu from '../screens/bookingScreen/sportBooking/Bookingmenu';
 import BadmintonBooking from '../screens/bookingScreen/sportBooking/BadmintonBooking';
+import Splacehome from '../screens/splashScreen/Splacehome';
 const Stack = createNativeStackNavigator();
 
 const AppNavigator = () => {
@@ -17,9 +18,10 @@ const AppNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Splash"
+        initialRouteName="Splacehome"
         screenOptions={{ headerShown: false }}>
           <Stack.Screen name="HomeScreen" component={HomeScreen} />
+          <Stack.Screen name="Splacehome" component={Splacehome} />
           <Stack.Screen name="LoginScreen" component={LoginScreen} />
           <Stack.Screen name="SportScreen" component={SportScreen} />
           <Stack.Screen name="BadmintonBooking" component={BadmintonBooking} />

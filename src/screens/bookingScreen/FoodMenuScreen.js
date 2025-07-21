@@ -32,6 +32,21 @@ const FoodMenuScreen = () => {
     }));
   };
 
+  const handleDecrement = (itemId) => {
+    setSelectedItems((prev) => {
+      const currentCount = prev[itemId] || 0;
+      if (currentCount <= 1) {
+        const updated = { ...prev };
+        delete updated[itemId];
+        return updated;
+      }
+      return {
+        ...prev,
+        [itemId]: currentCount - 1,
+      };
+    });
+  };
+
   const handleBuyNow = () => {
     const selectedIds = Object.keys(selectedItems);
 
@@ -87,6 +102,7 @@ const FoodMenuScreen = () => {
                 count={count}
                 isSelected={count > 0}
                 onAdd={() => handleAdd(item.id)}
+                onDecrement={() => handleDecrement(item.id)}
               />
             );
           }}
@@ -121,6 +137,7 @@ const FoodMenuScreen = () => {
 };
 
 export default FoodMenuScreen;
+
 
 const styles = StyleSheet.create({
   container: {
